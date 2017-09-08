@@ -38,3 +38,22 @@ function color_println()
   echo -n "${message}"
   echo -e "${COLOR_NONE}"
 }
+
+# echo a string in a color without a newline
+function color_print()
+{
+  local color=$1
+  local message=$2
+  if [ "${message}" == "" ] ; then
+    echo 'Message is required for color_println'
+    exit 1
+  fi
+
+  if [ "${color}" == "" ] ; then
+    echo 'Color is require for color_println'
+    exit 1
+  fi
+  echo -n -e "${color}"
+  echo -n "${message}"
+  echo -n -e "${COLOR_NONE}"
+}
